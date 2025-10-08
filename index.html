@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NATO Rules of Procedure — Collapsible</title>
+  <style>
+body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #E8EAE6;
+      color: #333;
+    }
+
+    .letterhead {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #D6DBD2;
+      border-bottom: 2px solid #444;
+      padding: 10px 20px;
+      height: 100px;
+    }
+
+    .address, .contact {
+      width: 25%;
+      font-size: 0.9rem;
+      color: #333;
+    }
+
+    .contact {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+
+    .contact div {
+      margin: 2px 0;
+    }
+
+    .logo {
+      width: 120px;
+      height: auto;
+    }
+
+    .letterhead a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+
+    .letterhead a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      padding: 2em;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h1 {
+      text-align: center;
+      color: #005b63;
+      margin-bottom: 1em;
+    }
+
+    /* Legend Box Style */
+    .legend-box {
+        background-color: #fffde7;
+        border: 1px solid #fff9c4;
+        border-left: 5px solid #fdd835;
+        padding: 1em 1.5em;
+        margin-bottom: 1.5em;
+        border-radius: 8px;
+        font-style: italic;
+        color: #5f5f5f;
+    }
+    
+    .legend-box code {
+        font-weight: bold;
+        color: #333;
+    }
+
+    /* Live Summary Box Style */
+    .summary-box {
+        background-color: #f3e5f5;
+        border: 1px solid #e1bee7;
+        border-left: 5px solid #8e24aa;
+        padding: 1em 1.5em;
+        margin-bottom: 2em;
+        border-radius: 8px;
+    }
+    .summary-box h2 {
+        margin-top: 0;
+        margin-bottom: 0.5em;
+        color: #6a1b9a;
+        font-size: 1.2em;
+        text-align: left;
+    }
+    .summary-box p {
+        font-size: 1.1em;
+        margin: 0.5em 0;
+    }
+    .summary-box strong {
+        color: #4a148c;
+    }
+    .unavailable-countries-list {
+        list-style-type: none;
+        padding-left: 0;
+        column-count: 4;
+        column-gap: 20px;
+        margin-top: 0.5em;
+    }
+    .unavailable-countries-list li {
+        margin-bottom: 0.3em;
+    }
+
+    /* Cards */
+    .card-container {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5em;
+    }
+
+    .school-card {
+        background: #ffffff;
+        padding: 1.5em 2em;
+        border-radius: 16px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        border-left: 5px solid #00897b;
+    }
+
+    .school-card h3 {
+        color: #005b63;
+        margin-top: 0;
+        border-bottom: 1px solid #b2dfdb;
+        padding-bottom: 0.5em;
+        font-size: 1.4em;
+    }
+    
+    .school-card p {
+        margin: 0.5em 0;
+        line-height: 1.6;
+    }
+
+    .school-card strong {
+        color: #004d40;
+        min-width: 150px;
+        display: inline-block;
+    }
+    
+    .school-card a {
+        color: #0066cc;
+        text-decoration: none;
+    }
+    
+    .school-card ol {
+        padding-left: 20px;
+    }
+
+    /* Assigned Countries */
+    .assignment-section {
+        background-color: #e0f2f1;
+        border: 1px solid #b2dfdb;
+        padding: 0.7em 1.2em;
+        margin-top: 1em;
+        border-radius: 8px;
+    }
+    .assignment-section p {
+        margin: 0;
+    }
+    .assignment-section ul {
+        padding-left: 20px;
+        margin: 0.5em 0 0.2em 0;
+        list-style-type: square;
+    }
+    
+    .timestamp {
+        font-size: 0.8em;
+        color: #777;
+        text-align: right;
+        margin-top: 1.5em;
+    }
+
+    /* Generate Button */
+    .generate-button {
+        display: block;
+        width: 100%;
+        background-color: #43a047;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        margin-top: 1.5em;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 1em;
+        font-weight: bold;
+        transition: background-color 0.3s;
+    }
+    .generate-button:hover {
+        background-color: #388e3c;
+    }
+
+    @media (max-width: 768px) {
+      .letterhead, .unavailable-countries-list {
+        flex-direction: column;
+        height: auto;
+        text-align: center;
+        column-count: 2;
+      }
+      .address, .contact {
+        width: 100%;
+        align-items: center;
+        margin-top: 10px;
+      }
+      .logo {
+        margin: 15px 0;
+      }
+    }
+
+/* Additions (non-conflicting) */
+main {
+  padding: 2em;
+  max-width: 1100px;
+  margin: auto;
+}
+h1.page-title { text-align: center; margin: 1rem 0 1.25rem; }
+.toolbar { display: flex; gap: 10px; margin: 12px 0 18px; flex-wrap: wrap; }
+.btn { background: #43a047; color: #fff; border: none; border-radius: 10px; padding: 10px 14px; cursor: pointer; font-weight: 700; }
+.btn:hover { background: #388e3c; }
+details.collapsible { background: #ffffff; border-radius: 14px; margin: 0 0 14px 0; box-shadow: 0 6px 18px rgba(0,0,0,0.06); border-left: 5px solid #00897b; overflow: hidden; }
+details.collapsible > summary { cursor: pointer; list-style: none; padding: 14px 18px; font-weight: 700; display: flex; align-items: center; justify-content: space-between; }
+details.collapsible[open] > summary { border-bottom: 1px solid #e0f2f1; }
+details.collapsible summary::-webkit-details-marker { display: none; }
+details.collapsible summary::after { content: "▸"; transition: transform 0.2s ease; font-size: 1.2rem; }
+details.collapsible[open] summary::after { transform: rotate(90deg); }
+.section-content { padding: 12px 18px 18px 18px; line-height: 1.6; }
+.table-wrapper { overflow-x:auto; margin: 8px 0 12px; }
+.doc-table { border-collapse: collapse; width: 100%; }
+.doc-table td, .doc-table th { border: 1px solid #cfd8dc; padding: 8px; vertical-align: top; }
+.doc-table tr:nth-child(even) { background: #fafafa; }
+.small-note { font-size: 0.9rem; color: #666; margin-top: 6px; }
+  </style>
+</head>
+<body>
+  <div class="letterhead">
+    <div class="address">
+      <strong>4 Isminis Str.</strong><br>
+      Pylaia, Thessaloniki - 55535
+    </div>
+    <div>
+      <img src="https://pyleamun.github.io/interview-guide/pyleaMUNfinallogo_transparent.png" alt="PyleaMUN Logo" class="logo">
+    </div>
+    <div class="contact">
+      <div>📞 +30 2310329199</div>
+      <div>📧 <a href="mailto:pyleamun@gmail.com">pyleamun@gmail.com</a></div>
+      <div>🌐 <a href="https://pyleamun.github.io/pyleamun2026/" target="_blank">pyleamun.github.io/pyleamun2026</a></div>
+    </div>
+  </div>
+
+  <main>
+    <h1 class="page-title">NATO Rules of Procedure</h1>
+    <div class="toolbar">
+      <button class="btn" onclick="toggleAll(true)">Expand all</button>
+      <button class="btn" onclick="toggleAll(false)">Collapse all</button>
+      <button class="btn" onclick="window.print()">Print</button>
+    </div>
+
+    <p>NATO&#x27;s Rules of Procedure</p>
+    
+<details class="collapsible">
+  <summary>INTRODUCTION</summary>
+  <div class="section-content">
+    <p>The North Atlantic Organisation (NATO) is made up of thirty-two (32) nations, and it is a political and military alliance. This paper will help you comprehend the different procedures of this committee.</p><p>Important note: The countries&#x27; policies should all be further investigated by the Delegates.</p>
+  </div>
+</details>
+
+
+<details class="collapsible">
+  <summary>PROCEDURE</summary>
+  <div class="section-content">
+    <p>NATO is a non-GA committee. The council reaches decisions by allowing discussions to continue until a consensus is reached. Consensus is needed in order to reach a decision and adopt a Draft Communiqué. All NATO decisions are made by consensus, after discussion and consultation among member countries, due to the nature of NATO as an Alliance. This means that when a communiqué is announced, it is the expression of the collective will of all the sovereign states that are members of the Alliance.</p>
+  </div>
+</details>
+
+
+<details class="collapsible">
+  <summary>1.1. Composition</summary>
+  <div class="section-content">
+    <p>The Board of the North Atlantic Council of the North Atlantic Treaty Organisation (hereinafter referred to as the Council) will be composed of the President of the Council and the Secretary General of NATO.</p>
+  </div>
+</details>
+
+
+<details class="collapsible">
+  <summary>1.2.1. Authority of the President</summary>
+  <div class="section-content">
+    <p>The President shall exercise ultimate authority over his/her Council, presiding in an equitable and objective manner. The President also reserves the right to propose a motion at any time, which will help the work and procedures of the Council move forward and should be taken seriously into account by the Council. In case of disruptive or dilatory behavior of any participants, the President reserves the right to take appropriate action.</p>
+  </div>
+</details>
+
+
+<details class="collapsible">
+  <summary>1.2.2. Responsibilities of the President</summary>
+  <div class="section-content">
+    <p>The President is responsible for all procedural matters pertaining to the Council, including, but not limited to, moderating the debate, determining the applicability of the rules and if necessary, clarifying the meaning of the existing rules without approval by the Council.</p>
+  </div>
+</details>
+
+
+<details class="collapsible">
+  <summary>1.2.3. Authority of the Vice President</summary>
+  <div class="section-content">
+    <p>The Vice President shall have authority over all Council support operations. The Vice President will have as primary responsibility to ensure that delegates are accurately representing the position of their countries with respect to substantive issues and topics. The Vice President reserves the right to take appropriate actions to ensure the proper representation of country-policies by the delegates.</p>
+  </div>
+</details>
+
+
+<details class="collapsible">
+  <summary>1.2.4. Responsibilities of the Vice President</summary>
+  <div class="section-content">
+    <p>The Vice President shall also be responsible for ensuring relevancy of the content and format of the Working Papers before their submission for verification by the Secretariat. The Deputy President shall also assist the President with all Committee presiding matters.</p>
+  </div>
+</details>
+
+
+<details class="collapsible">
+  <summary>1.2.5. Authority &amp; Responsibilities of the Secretary General</summary>
+  <div class="section-content">
+    <p>The Secretary General can either take the floor, upon his/her request or clarify the policy of the member states, or issue written statements addressed to the Council, at any time. It is within his/her responsibilities to assist in the policy planning of the Council. The Secretary General has the duty to make remarks when a member state is out of policy at any issue at hand. She/he shall also have a supervisory and reconciliatory role in the drafting procedure of Recommendations under the scope of protecting the general interest of states.</p>
+  </div>
+</details>
+
+
+<details class="collapsible">
+  <summary>1.3. Caucus of the Board</summary>
+  <div class="section-content">
+    <p>The Chairpersons reserve the right to halt the procedures within the Council in order to take 30 seconds of internal Caucus.</p><p>2.Parliamentary procedure</p>
+  </div>
+</details>
+
+
+<details class="collapsible">
+  <summary>2.1. Roll Call</summary>
+  <div class="section-content">
+    <p>Attendance shall be kept by the President with a Roll Call at the beginning of every session. Delegates shall establish their presence in the Council by raising their placards and declaring ‘‘Present’’.</p>
+  </div>
+</details>
+
+
+<details class="collapsible">
+  <summary>2.2. Procedural matters</summary>
+  <div class="section-content">
+    <p>Procedural matters include, but are not limited to, establishing speaking time, motions and adjournment of the council session. All delegates must vote on procedural matters by raising their placards and no delegate may abstain.</p>
+  </div>
+</details>
+
+
+<details class="collapsible">
+  <summary>2.3. Substantial Matters</summary>
+  <div class="section-content">
+    <p>Substantial matters are defined as those matters relating to the specific topic at hand. Substantial Matters need a consensus in order to be approved by the Council.</p>
+  </div>
+</details>
+
+
+<details class="collapsible">
+  <summary>2.3.1. Decision Making Process</summary>
+  <div class="section-content">
+    <p>The Council of NATO is composed by the Ministers of Foreign Affairs of the States parties to the North Atlantic Treaty working towards the adoption of Draft Communiqués through the process of consensus.</p>
+  </div>
+</details>
+
+
+<details class="collapsible">
+  <summary>3. Quorum</summary>
+  <div class="section-content">
+    <p>Council activities and debate shall start when at least 50% +1 of the States parties to the North Atlantic Treaty are present. If quorum is not met thirty (30) minutes after the scheduled start time of the Council session, the Council shall start its session with the number of delegates already present. Participants arriving during or after the Roll Call, are required to send a note to the President stating their presence in the Council. As long as participants have not informed the President of their arrival they will not be recognized or allowed to participate in the Council. The total number of delegates will be determined by the attendance list from the most recent Council session. If quorum is in question in the first Council session, the list of delegations expected to attend will serve to determine the total number of delegates in attendance. Quorum will be assumed to be present unless specifically challenged and shown to be absent. The President may at any time, and especially before entering voting procedures, revisit the quorum at his/her own discretion.</p>
+  </div>
+</details>
+
+
+<details class="collapsible">
+  <summary>3.1. Motion to Verify the Quorum</summary>
+  <div class="section-content">
+    <p>Delegates may raise a motion to verify the Quorum, where the President will proceed with Quorum confirmation by initiating a Roll Call. The President can rule the Motion dilatory without option for appeal.</p>
+  </div>
+</details>
+
+
+<details class="collapsible">
+  <summary>4.1. Simple Majority</summary>
+  <div class="section-content">
+    <p>A procedural matter requiring a simple majority to pass implies that fifty percent of the Delegates plus one (50% + 1) must vote in favour for the matter to pass. If the vote is a tie, the matter will be considered to have failed.</p>
+  </div>
+</details>
+
+
+<details class="collapsible">
+  <summary>4.2. Two-thirds (2/3) Majority</summary>
+  <div class="section-content">
+    <p>A procedural matter requiring a two-thirds (2/3) majority to pass implies that two-thirds (2/3) of the present member states in the Council must vote in favour.</p>
+  </div>
+</details>
+
+
+<details class="collapsible">
+  <summary>4.3. Consensus</summary>
+  <div class="section-content">
+    <p>Consensus is needed in order to reach a decision and adopt a Draft Communiqué. Consensus shall not be verified by a voting procedure, but shall be reached through debate. Consultations take place until a decision that is acceptable to all is reached. All NATO decisions are made by consensus, after discussion and consultation among member countries, due to the nature of the North Atlantic Treaty Organisation as an Alliance. This means that when a NATO communiqué is announced, it is the expression of the collective will of all the sovereign states that are members of the Alliance.</p>
+  </div>
+</details>
+
+
+<details class="collapsible">
+  <summary>5. Agenda</summary>
+  <div class="section-content">
+    <p>The Agenda items are ordered randomly. This cannot be considered as binding for the order in which topics will be addressed by the Council. The President may entertain a motion to set the agenda immediately after setting the quorum so as to define which topic area takes precedent in the debate.</p>
+  </div>
+</details>
+
+
+<details class="collapsible">
+  <summary>5.1. Motion to set the Agenda</summary>
+  <div class="section-content">
+    <p>Following the Motion to Verify the Quorum, a Motion to Set the Agenda on a specific topic will be in order. The President will consider the Motions in the order in which they were made. The President will take one (1) speaker in favour and one (1) speaker against the Motion and proceed with a vote. The speaker’s time in favour and against the Motion shall be equal and determined by the President and the speakers will receive the floor in rotation (in favour – against). If the Motion passes, requiring simple majority, the Agenda will be set in the manner suggested by the Motion. If the Motion fails, the President shall consider the next Motion and repeat the aforementioned process. If no Motion to set the Agenda receives the necessary majority then the Council will discuss as first the topic that gathered the most positive votes during the voting procedure. The order in which the Agenda is set at the beginning of the conference shall remain the same for the duration of the conference.</p>
+  </div>
+</details>
+
+
+<details class="collapsible">
+  <summary>5.2. Alteration of the Agenda</summary>
+  <div class="section-content">
+    <p>In the event of an international crisis or emergency, the Secretary General may call upon the Council to table debate on the current topic area in order for the more urgent matter to be addressed to immediately. After a communiqué has been approved on the crisis topic, the Council will return to debate the tabled topic. If a communiqué on the crisis topic is rejected, the Council may return to debate on the tabled topic area only at the discretion of the Secretary General or his/her Deputies.</p>
+  </div>
+</details>
+
+
+<details class="collapsible">
+  <summary>6.1. Form of Debate</summary>
+  <div class="section-content">
+    <p>Unless the President decides otherwise, moderated caucus will be the form of debate during all sessions of the Council. Any delegate wishing to speak, should raise his/her placard and be recognized by the President.</p>
+  </div>
+</details>
+
+
+<details class="collapsible">
+  <summary>6.2. Informal Debate</summary>
+  <div class="section-content">
+    <p>During debate a delegate can propose a Motion for an Unmoderated Caucus, which constitutes informal debate. Informal debate can only occur on substantive issues and is out of order once a motion to close debate has passed.</p>
+  </div>
+</details>
+
+
+<details class="collapsible">
+  <summary>6.3. Recognition</summary>
+  <div class="section-content">
+    <p>A Delegate may only address the Council if he/she has received permission from the Board.</p>
+  </div>
+</details>
+
+
+<details class="collapsible">
+  <summary>6.4. Interruptions</summary>
+  <div class="section-content">
+    <p>A speaker may not be interrupted by another delegate, unless the delegate has risen to a Point of Personal Privilege. A Point of Order, Right of Reply or Point Parliamentary Inquiry cannot interrupt a speaker. Only once a speaker has concluded and the floor is given back to the President, a delegate may rise to a Point of Order, Right of Reply.</p>
+  </div>
+</details>
+
+
+<details class="collapsible">
+  <summary>7.1. Motion to Set Speaking Time</summary>
+  <div class="section-content">
+    <p>A delegate may propose a motion to set the Speaking time for each individual speaker. The Board may either rule the Motion dilatory at his/her discretion or put it to vote. A delegate exceeding the allotted time for a speech may be called to order by the Board.</p>
+  </div>
+</details>
+
+
+<details class="collapsible">
+  <summary>8.1. Point of Personal Privilege</summary>
+  <div class="section-content">
+    <p>A delegate may rise to a Point of Personal Privilege if a matter impairs the delegate’s participation in council activities. The Board shall try to effectively address the source of impairment. A point personal privilege can interrupt the speaker in any case. However, this motion should be used with the utmost discretion.</p>
+  </div>
+</details>
+
+
+<details class="collapsible">
+  <summary>8.2. Point of Order</summary>
+  <div class="section-content">
+    <p>A delegate may rise to a Point of Order if a delegate or the Board are not properly following the Rules of Procedure. The Board will rule on the validity of the point immediately. A delegate rising to a Point of Order may not comment on the topic of the discussion. A Point of Order ruled dilatory by the Board may not be appealed. This point may not interrupt a speaker.</p>
+  </div>
+</details>
+
+
+<details class="collapsible">
+  <summary>8.3. Point of Parliamentary Inquiry</summary>
+  <div class="section-content">
+    <p>A delegate may rise to a Point of Parliamentary Inquiry to request an explanation on the Rules of Procedure by the Board. This point may not interrupt a speaker.</p>
+  </div>
+</details>
+
+
+<details class="collapsible">
+  <summary>9.1. Right of Reply</summary>
+  <div class="section-content">
+    <p>A delegate whose personal or national integrity has been impugned by another delegate’s comments may rise to a Right of Reply. Disagreement with the content of a delegate&#x27;s speech does not constitute sufficient justification for a Right of Reply. The President will recognize the Right of Reply at his/her discretion as well as decide on how to resolve the matter. This point may not interrupt a speaker but should be addressed the moment he/she will has finished his/her speech. Should the President rule the Right of Reply out of order, his/her decision cannot be appealed. No delegate may call for a Right of Reply on a Right of Reply.</p>
+  </div>
+</details>
+
+
+<details class="collapsible">
+  <summary>10. Motions</summary>
+  <div class="section-content">
+    <p>Motions are proposed by the delegates in order to facilitate the debate or the overall procedure by raising their placards and waiting to be recognised. All proposed motions shall be first approved by the Board which shall then ask for second and objections (as defined in rule 12). Should the motion face objections the most disruptive one shall take precedence in the voting procedure.</p>
+  </div>
+</details>
+
+
+<details class="collapsible">
+  <summary>10.1. Motion for an Unmoderated Caucus</summary>
+  <div class="section-content">
+    <p>A delegate proposing a Motion for an Unmoderated Caucus must indicate a total duration and purpose for the Caucus. The President may suggest a more appropriate caucus length or topic and put it to vote or may rule the Unmoderated Caucus out of order without possibility of appeal. Once the Motion passes, the Council will start an informal discussion on the topic specified in the Motion without leaving the conference room.</p>
+  </div>
+</details>
+
+
+<details class="collapsible">
+  <summary>10.2. Motion to Extend the Unmoderated Caucus</summary>
+  <div class="section-content">
+    <p>A delegate may move to extend the Unmoderated Caucus if he/she feels that additional time would benefit the work of the Council. The delegate who proposes a Motion to Extend the Unmoderated Caucus must suggest duration for the extension, not exceeding the initial Unmoderated Caucus. The President may suggest more appropriate caucus duration and put it to vote or may rule the Extension of the Unmoderated Caucus out of order without the possibility of appeal. Only one extension of the Unmoderated Caucus is allowed.</p>
+  </div>
+</details>
+
+
+<details class="collapsible">
+  <summary>10.3. Motion to Table Debate on a Topic</summary>
+  <div class="section-content">
+    <p>A delegate may move to Table Debate in order to end debate on a substantive issue without concluding discussion and reaching consensus on a draft Communiqué that may be on the floor. If the Board rules the Motion in order, one (1) delegate shall speak in favour and one (1) delegate shall speak against before proceeding with a vote.</p>
+  </div>
+</details>
+
+
+<details class="collapsible">
+  <summary>10.4. Motion to Return to a Dismissed Topic</summary>
+  <div class="section-content">
+    <p>If a Motion to Table the Debate passes, the Board may entertain a Motion to return to a Dismissed Topic. In that event, the Board will entertain one (1) speaker in favor and one (1) speaker against the motion. This Motion requires 2/3 majority in order to pass.</p>
+  </div>
+</details>
+
+
+<details class="collapsible">
+  <summary>10.5. Motion to Adjourn the Meeting</summary>
+  <div class="section-content">
+    <p>A delegate may propose a Motion to adjourn the Meeting in order to suspend all Council activities until the next scheduled meeting. The President may rule the Motion out of order without possibility of appeal or put it to vote. The motion requires simple majority in order to pass.</p>
+  </div>
+</details>
+
+
+<details class="collapsible">
+  <summary>10.6. Motion to Adjourn the Session</summary>
+  <div class="section-content">
+    <p>A delegate may propose a motion to adjourn the Session in order to cease permanently all Council activities1. The President may rule the Motion out of order without possibility of appeal or put it to vote. The motion is debatable thus the President will entertain one(1) speaker in favour and one speaker(1) against, at his/her discretion. The motion requires 2/3 majority in order to pass.</p>
+  </div>
+</details>
+
+
+<details class="collapsible">
+  <summary>11. Seconds &amp; Objections</summary>
+  <div class="section-content">
+    <p>After a delegate proposes a motion, the Board may ask for seconds, i.e. delegates agreeing with the motion. All delegates wishing to second the motion will have to raise their placards. If there are no seconds the motion will automatically fail.</p><p>If there are seconds, the Board will ask for objections, i.e. delegates disagreeing with the proposed motion. All the delegates wishing to express their objection will raise their placards. If there are no objections, the motion will automatically pass. If there are objections, the board will enter voting procedure.</p>
+  </div>
+</details>
+
+
+<details class="collapsible">
+  <summary>12. Voting</summary>
+  <div class="section-content">
+    <p>Voting is in order only for procedural matters. Each delegate of the Council has one vote and must demonstrate his/her voting intentions by raising his/her placard at the President&#x27;s request unless there is a Roll Call Vote. Delegates must vote in favour or against. There are no abstentions and no delegate shall vote on behalf of another delegate.</p>
+  </div>
+</details>
+
+
+<details class="collapsible">
+  <summary>12.1. Roll Call Vote</summary>
+  <div class="section-content">
+    <p>This Motion is in order when the voting result on a procedural matter remains undefined. The President may rule the Motion out of order without the possibility of appeal. The Roll Call starts from a delegate randomly selected by the President.</p>
+  </div>
+</details>
+
+
+<details class="collapsible">
+  <summary>13.1. Working Paper</summary>
+  <div class="section-content">
+    <p>A Working Paper is an informal document used by delegates to work on building a Draft Communiqué. A Working Paper will be distributed at the Board&#x27;s discretion if requested by a Delegate. A Working Paper can be presented by the delegate when it is the delegate’s turn to speak during the debate.</p>
+  </div>
+</details>
+
+
+<details class="collapsible">
+  <summary>13.2.1. Sponsor</summary>
+  <div class="section-content">
+    <p>The main contributor of the draft Communiqué is recognized as the Sponsor. There is only one Sponsor for each Draft Communiqué. The Sponsor must be present for a draft Communiqué to be introduced to the floor. The Sponsor must agree to support a Communiqué, unless major changes have been introduced through the amendment process.</p>
+  </div>
+</details>
+
+
+<details class="collapsible">
+  <summary>13.2.2. Introduction of a Draft Communiqué</summary>
+  <div class="section-content">
+    <p>A Delegate may propose a Motion to Introduce a Draft Communiqué. Once the Working Paper has been assigned a Draft Communiqué number by the Secretary General, the Board will entertain a motion to introduce the Draft Communiqué, requiring simple majority. Once the Motion passes, the President shall invite the Sponsor of the Draft Communiqué to read out only the operative clauses of the Draft Communiqué to the Council. The Sponsor or one of the Signatories will then be recognized for five (5) minutes to speak in favor of the Draft Communiqué. The Speaker may yield his/her remaining time to Questions or to another Delegate if he/she wishes to do so.</p>
+  </div>
+</details>
+
+
+<details class="collapsible">
+  <summary>13.2.3. Withdrawal of a Draft Communiqué</summary>
+  <div class="section-content">
+    <p>A draft Communiqué may be withdrawn by its sponsor anytime before the amendment procedure starts. This request should be submitted in written form to the President. A draft Communiqué may not be withdrawn if any amendment to it is on the floor.</p>
+  </div>
+</details>
+
+
+<details class="collapsible">
+  <summary>13.3. Amendments</summary>
+  <div class="section-content">
+    <p>An Amendment may add, strike out or revise a part of the Draft Communiqué. The Amendment has to be first approved by the Board. It is highly recommended, that there is at least one co-sponsor of the Amendment. It is in the discretion of the Board to define the period of time, during which the floor will be open for Amendments.</p>
+  </div>
+</details>
+
+
+<details class="collapsible">
+  <summary>13.3.1 Motion to Introduce Amendments</summary>
+  <div class="section-content">
+    <p>A Delegate may propose a Motion to Introduce Amendments after the time for the submission of Amendments has elapsed. If the Motion passes, the President will introduce to the Council all Amendments approved by the Board.</p>
+  </div>
+</details>
+
+
+<details class="collapsible">
+  <summary>13.3.1.1 Non Substantive Amendments</summary>
+  <div class="section-content">
+    <p>Amendments correcting grammatical, spelling or formatting mistakes will be automatically adopted without vote from the Council, at the discretion of the President. Following the initial reading of the draft Communiqué by its Sponsor, delegates are permitted to point out any such problems to the President.</p>
+  </div>
+</details>
+
+
+<details class="collapsible">
+  <summary>13.3.1.2. Substantive Amendments</summary>
+  <div class="section-content">
+    <p>Substantive Amendments to a Draft Communiqué require approval from the President to be introduced. Such Amendments will be approved following the procedure. Amendments to Amendments are out of order. The President reserves the right to assign one (1) speaker for and one (1) speaker against each Substantive Amendment. Due to the nature of the decision process in the NAC, all Amendments to a Draft Communiqué must be approved with the procedure of consensus.</p>
+  </div>
+</details>
+
+
+<details class="collapsible">
+  <summary>13.4. Withdrawal</summary>
+  <div class="section-content">
+    <p>The Sponsor of a Substantive Amendment may request its withdrawal at his/her discretion, before its adoption by the Council.</p>
+  </div>
+</details>
+
+
+<details class="collapsible">
+  <summary>13.5. Approval of Amendments</summary>
+  <div class="section-content">
+    <p>After the President has concluded the Introduction of Amendments, he/she will read one by one all Amendments, asking for Objections. Should there be any Objections, the Council shall enter a short period of debate defined by the President, in order to reach consensus. When the allotted period of time for debate has elapsed, the President shall ask the Council whether consensus has been achieved, taking this result as final. In case no consensus can be reached, the Council will disregard the Amendment at hand. All subsequent Amendments shall be discussed in accordance with the aforementioned procedure, and in the order defined by their assigned number.</p><p>If one Amendment implies the rejection of a second Amendment, the second Amendment will not be discussed. An Amendment that has been approved by the Council shall be automatically integrated into the Draft Communiqué. Once all Amendments relating to a Draft Communiqué have been discussed and approved by the Council, the Board shall read the operative clauses as they have been modified.</p>
+  </div>
+</details>
+
+
+<details class="collapsible">
+  <summary>14.1. General</summary>
+  <div class="section-content">
+    <p>The Council usually reaches decisions by allowing discussions to continue until a consensus is reached. In the event of a stalemate, the Council may use a tour de table (see rule 14.2. below).</p>
+  </div>
+</details>
+
+
+<details class="collapsible">
+  <summary>14.1.1. Consensus</summary>
+  <div class="section-content">
+    <p>For the decision process demanding consensus, refer to rule 4.3., above.</p>
+  </div>
+</details>
+
+
+<details class="collapsible">
+  <summary>14.2. Tour de table</summary>
+  <div class="section-content">
+    <p>A Tour de Table shall be conducted at the discretion of the President. The President requests each delegate to give a short summary of his/her position on the matter under discussion and express any disagreement, in order to determine whether a compromise is possible.</p>
+  </div>
+</details>
+
+
+<details class="collapsible">
+  <summary>14.3. Approval of Communiqués</summary>
+  <div class="section-content">
+    <p>The approval of Communiqués is subject to the procedure described in Rule 10.5. Once Motion to Close Debate has passed, the Draft Communiqué on the table shall be considered as the final Communiqué of the Council upon which consensus has been reached.</p>
+  </div>
+</details>
+
+
+<details class="collapsible">
+  <summary>14.3.1 Motion to Approve the Draft Communiqué</summary>
+  <div class="section-content">
+    <p>A delegate may propose a Motion to Approve the Draft Communiqué in order to verify whether a consensus on the Draft Communiqué has been achieved. The President may rule the Motion out of order without possibility of appeal or put it to vote. The motion requires 2/3 majority in order to pass.</p><p>Once the motion has passed, the President shall ask for any objections on the Draft Communiqué, if there are no objections the draft communique is considered to be adopted.</p><p>If there are objections the Council shall enter a Tour de table (see above 14.2) with an individual speaker’s time defined by the President. Delegates objecting should refer to the specific articles causing their disagreement. Should the Board observe disagreements among the member states, the Secretary General will entertain and facilitate a short period of debate, only on the articles causing disagreement as stated by the objecting delegates, in order to identify possible grounds of compromise. She/he shall play a reconciliatory role in order for the Council to reach consensus.</p><p>The Secretary General maintains the right to make any necessary adjustments to the content of the Draft Communiqué guided by the outcome of the debate and based on the consent of the member states. After the conclusion of debate the President shall once more verify the consensus on the Draft Communiqué, asking for objections, considering this result to be final.</p>
+  </div>
+</details>
+
+
+<details class="collapsible">
+  <summary>14.4. Motion to Close Debate on the Topic Area under Discussion</summary>
+  <div class="section-content">
+    <p>After consensus has been reached on the Draft Communiqué, a delegate may propose a Motion to Close Debate in order to end debate on the Topic Area under discussion. The President may rule the Motion out of order without possibility of appeal or put it to vote. The motion is debatable thus the President will entertain one(1) speaker in favour and one speaker(1) against, at his/her discretion. The motion requires 2/3 majority in order to pass.</p>
+  </div>
+</details>
+
+
+<details class="collapsible">
+  <summary>15. Appendix of Points and Motions</summary>
+  <div class="section-content">
+    <div class="table-wrapper"><table class="doc-table"><tr><td>Motion / Point</td><td>When</td><td>Debate?</td><td>Second?</td><td>Vote</td><td>Notes</td></tr><tr><td>Point of Personal Privilege</td><td>Anytime (not during voting)</td><td>No</td><td>No</td><td>None</td><td>For audibility/comfort; no interruptions unless urgent</td></tr><tr><td>Point of Order</td><td>Anytime</td><td>No</td><td>No</td><td>None</td><td>On procedure errors; Chair rules immediately</td></tr><tr><td>Point of Parliamentary Inquiry</td><td>During debate</td><td>No</td><td>No</td><td>None</td><td>Ask Chair about rules/procedure</td></tr><tr><td>Point of Information (to the Chair)</td><td>When floor is open</td><td>No</td><td>No</td><td>None</td><td>Short factual question to Chair</td></tr><tr><td>Motion to Set Agenda</td><td>At opening of debate</td><td>Pro/Con</td><td>Yes</td><td>Simple Majority</td><td>Two speakers for/against (time set by Chair)</td></tr><tr><td>Motion to Open Debate</td><td>Start of session</td><td>No</td><td>Yes</td><td>Simple Majority</td><td></td></tr><tr><td>Motion for Moderated Caucus</td><td>When floor is open</td><td>No</td><td>Yes</td><td>Simple Majority</td><td>Specify purpose, total time, speaking time</td></tr><tr><td>Motion for Unmoderated Caucus</td><td>When floor is open</td><td>No</td><td>Yes</td><td>Simple Majority</td><td>Specify duration</td></tr><tr><td>Motion to Introduce Draft Resolution</td><td>When a draft exists</td><td>No</td><td>Yes</td><td>Simple Majority</td><td>Requires required sponsors/signatories</td></tr><tr><td>Motion to Close Debate</td><td>During debate</td><td>2 Con</td><td>Yes</td><td>2/3 Majority</td><td>Ends debate, move to voting</td></tr><tr><td>Motion to Divide the Question</td><td>During voting procedure</td><td>Pro/Con</td><td>Yes</td><td>Simple Majority</td><td>Split operative clauses for separate vote</td></tr><tr><td>Motion for Roll-Call Vote</td><td>Before voting begins</td><td>No</td><td>Yes</td><td>Simple Majority</td><td>Vote recorded individually</td></tr><tr><td>Motion to Reconsider</td><td>After a vote</td><td>Pro/Con</td><td>Yes</td><td>2/3 Majority</td><td>Must be by someone on prevailing side</td></tr><tr><td>Motion to Adjourn Meeting</td><td>End of day/session</td><td>No</td><td>Yes</td><td>Simple Majority</td><td></td></tr><tr><td>Motion to Suspend Meeting</td><td>For a break</td><td>No</td><td>Yes</td><td>Simple Majority</td><td></td></tr></table></div><p class="small-note">                  </p>
+  </div>
+</details>
+
+  </main>
+
+  <script>
+    function toggleAll(open) {
+      document.querySelectorAll('details.collapsible').forEach(d => d.open = open);
+    }
+  </script>
+</body>
+</html>
